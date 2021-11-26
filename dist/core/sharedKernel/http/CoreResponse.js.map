@@ -1,0 +1,1 @@
+{"version":3,"file":"CoreResponse.js","sourceRoot":"","sources":["../../../../src/core/sharedKernel/http/CoreResponse.ts"],"names":[],"mappings":";;;AAIA,MAAa,YAAY;IAKd,MAAM,CAAC,UAAU,CAAC,YAAoD;QACzE,MAAM,MAAM,GAAG,IAAI,YAAY,EAAE,CAAC;QAClC,MAAM,CAAC,OAAO,GAAG,YAAY,CAAC,OAAO,CAAC;QACtC,OAAO,MAAM,CAAC;IAClB,CAAC;CACJ;AAVD,oCAUC"}

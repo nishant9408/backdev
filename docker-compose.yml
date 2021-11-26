@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres:latest"
+    container_name: "healthy-picks-db"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: 'local'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'local'
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+    command: ["postgres", "-c", "log_statement=all"]
+volumes:
+  my_dbdata:
