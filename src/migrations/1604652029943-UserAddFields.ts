@@ -5,6 +5,9 @@ export class UserAddFields1604652029943 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         const changes = `
             ALTER TABLE users
+            ADD COLUMN location VARCHAR(100),
+            ADD COLUMN region VARCHAR(100),
+            ADD COLUMN health_condition VARCHAR(100),
             ADD COLUMN timezone VARCHAR(50),
             ADD COLUMN notification_token VARCHAR(255);`;
 
