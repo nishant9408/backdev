@@ -18,7 +18,7 @@ export class UserModel1602407987915 implements MigrationInterface {
             weight_loss_intensity INTEGER NOT NULL,
             health_condition VARCHAR(255) NOT NULL,
             region VARCHAR(255) NOT NULL,
-            location VARCHAR(255) NOT NULL,
+            location_new VARCHAR(255) NOT NULL,
             food_intolerance text[] NOT NULL,
             diet VARCHAR(255) NOT NULL,
             foods text[] NOT NULL,
