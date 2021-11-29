@@ -1,3 +1,5 @@
+import { Healthcondition } from '../../../../core/data/Healthcondition';
+import { Region } from '../../../../core/data/Region';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { Diet } from '../../../../core/data/Diet';
 import { Food } from '../../../../core/data/Food';
@@ -20,6 +22,8 @@ interface UserEntityObject {
     foodIntolerance: string[];
     averageSleepingTime: number;
     diet: Diet;
+    healthcondition: Healthcondition;
+    region: Region;
     foods: Food[];
     timezone: string;
     notificationToken: string;
@@ -78,6 +82,12 @@ export class UserEntity {
     @Column({ name: 'diet', type: 'enum', enum: Diet })
     diet: Diet;
 
+    @Column({ name: 'healthcondition', type: 'enum', enum: Healthcondition })
+    healthcondition: Healthcondition;
+
+    @Column({ name: 'region', type: 'enum', enum: Region })
+    region: Region;
+
     @Column({ name: 'foods', array: true, type: 'enum', enum: Food })
     foods: Food[];
 
@@ -101,6 +111,8 @@ export class UserEntity {
         newUser.foods = builder.foods;
         newUser.averageSleepingTime = builder.averageSleepingTime;
         newUser.diet = builder.diet;
+        newUser.region = builder.region;
+        newUser.healthcondition = builder.healthcondition;
         newUser.height = builder.height;
         newUser.weightLossIntensity = builder.weightLossIntensity;
         newUser.weight = builder.weight;

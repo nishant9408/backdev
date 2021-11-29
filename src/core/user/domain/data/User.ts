@@ -1,6 +1,8 @@
+import { Healthcondition } from '../../../data/Healthcondition';
 import { Diet } from '../../../data/Diet';
 import { Food } from '../../../data/Food';
 import { GenderType } from '../../../data/GenderType';
+import { Region } from '../../../data/Region';
 
 interface UserBuilder {
     id?: number | undefined | null;
@@ -17,6 +19,8 @@ interface UserBuilder {
     diet: Diet;
     foods: Food[];
     timezone: string;
+    healthcondition: Healthcondition;
+    region: Region;
     // latitude: number;
     // longitude: number;
     notificationToken: string;
@@ -42,6 +46,8 @@ export class User {
     weightLossIntensity: number;
     foodIntolerance: string[];
     diet: Diet;
+    healthcondition: Healthcondition;
+    region: Region;
     foods: Food[];
     averageSleepingTime: number;
     createdAt?: Date | null;
@@ -62,6 +68,8 @@ export class User {
         user.foodIntolerance = builder.foodIntolerance;
         user.foods = builder.foods;
         user.diet = builder.diet;
+        user.healthcondition = builder.healthcondition;
+        user.region = builder.region;
         user.height = builder.height;
         user.averageSleepingTime = builder.averageSleepingTime;
         user.weightLossIntensity = builder.weightLossIntensity;

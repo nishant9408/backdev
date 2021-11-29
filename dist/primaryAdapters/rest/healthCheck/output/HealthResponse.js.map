@@ -1,1 +1,0 @@
-{"version":3,"file":"HealthResponse.js","sourceRoot":"","sources":["../../../../../src/primaryAdapters/rest/healthCheck/output/HealthResponse.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6CAAsD;AACtD,qDAA4C;AAE5C,MAAa,cAAc;IAKvB,YAAY,SAAkB;QAC1B,IAAI,CAAC,SAAS,GAAG,SAAS,CAAC;IAC/B,CAAC;CACJ;AALG;IAFC,IAAA,2BAAS,GAAE;IACX,IAAA,6BAAmB,GAAE;;iDACH;AAHvB,wCAQC"}

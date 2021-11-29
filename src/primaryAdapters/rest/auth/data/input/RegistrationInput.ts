@@ -1,11 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsEmail, IsEnum, IsNumber, IsOptional, IsString, Max, Min, MinLength } from 'class-validator';
+import { Healthcondition } from '../../../../../core/data/Healthcondition';
 import { Diet } from '../../../../../core/data/Diet';
 import { Food } from '../../../../../core/data/Food';
 import { GenderType } from '../../../../../core/data/GenderType';
 import { HealthProviderData } from '../../../healthData/input/HealthProviderData';
 
 import { BaseAuthInput } from './BaseAuthInput';
+import { Region } from '../../../../../core/data/Region';
 
 export class    RegistrationInput extends BaseAuthInput {
     @IsString()
@@ -60,6 +62,18 @@ export class    RegistrationInput extends BaseAuthInput {
         enum: Diet,
     })
     diet: Diet;
+
+    @IsEnum(Healthcondition)
+    @ApiProperty({
+        enum: Healthcondition,
+    })
+    healthcondition: Healthcondition;
+
+    @IsEnum(Region)
+    @ApiProperty({
+        enum: Region,
+    })
+    region: Region;
 
     @IsArray()
     @ApiProperty({ required: true, enum: Food, isArray: true })

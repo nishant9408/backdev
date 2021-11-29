@@ -1,1 +1,0 @@
-{"version":3,"file":"transformers.js","sourceRoot":"","sources":["../../../../src/secondaryAdapters/postgres/common/transformers.ts"],"names":[],"mappings":";;;AAEA,MAAa,iCAAiC;IAC1C,IAAI,CAAC,KAAU;QACX,OAAO,QAAQ,CAAC,KAAK,EAAE,EAAE,CAAC,CAAC;IAC/B,CAAC;IAED,EAAE,CAAC,KAAU;QACT,OAAO,KAAK,CAAC;IACjB,CAAC;CACJ;AARD,8EAQC"}

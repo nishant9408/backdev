@@ -1,7 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsEnum, IsNumber, IsString, Max, Min, MinLength } from 'class-validator';
+import { Healthcondition } from '../../../../../core/data/Healthcondition';
 import { Diet } from '../../../../../core/data/Diet';
 import { GenderType } from '../../../../../core/data/GenderType';
+import { Region } from '../../../../../core/data/Region';
 
 interface UserResponseBuilder {
     id: number | null;
@@ -20,6 +22,8 @@ interface UserResponseBuilder {
     foods: string[];
     timezone: string;
     notificationToken: string;
+    healthcondition: Healthcondition;
+    region: Region
 }
 
 export class UserResponse {
@@ -77,6 +81,14 @@ export class UserResponse {
     @ApiProperty({ enum: Diet })
     diet: string;
 
+    @IsEnum(Healthcondition)
+    @ApiProperty({ enum: Healthcondition})
+    healthcondition :string;
+
+    @IsEnum(Region)
+    @ApiProperty({ enum: Region})
+    region :string;
+
     @IsArray()
     @ApiProperty()
     foods: string[];
@@ -103,6 +115,8 @@ export class UserResponse {
         user.averageSleepingTime = builder.averageSleepingTime;
         user.gender = builder.gender;
         user.diet = builder.diet;
+        user.healthcondition = builder.healthcondition;
+        user.region = builder.region
         user.height = builder.height;
         user.weightLossIntensity = builder.weightLossIntensity;
         user.weight = builder.weight;

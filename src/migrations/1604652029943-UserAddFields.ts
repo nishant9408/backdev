@@ -7,7 +7,7 @@ export class UserAddFields1604652029943 implements MigrationInterface {
             ALTER TABLE users
             ADD COLUMN location_new VARCHAR(100),
             ADD COLUMN region VARCHAR(100),
-            ADD COLUMN health_condition VARCHAR(100),
+            ADD COLUMN healthcondition VARCHAR(100),
             ADD COLUMN timezone VARCHAR(50),
             ADD COLUMN notification_token VARCHAR(255);`;
 

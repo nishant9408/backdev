@@ -1,8 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString, Max, Min, MinLength } from 'class-validator';
+import { Healthcondition } from '../../../../../core/data/Healthcondition';
 import { Diet } from '../../../../../core/data/Diet';
 import { Food } from '../../../../../core/data/Food';
 import { GenderType } from '../../../../../core/data/GenderType';
+import { Region } from '../../../../../core/data/Region';
 
 export class UpdateUserInput {
     @IsString()
@@ -72,18 +74,18 @@ export class UpdateUserInput {
     @ApiProperty({ required: false })
     timezone: string;
 
-    @IsString()
+    @IsEnum(Healthcondition)
     @IsOptional()
-    @ApiProperty({ required: false })
-    health_condition: string;
+    @ApiProperty({ required: false, enum: Healthcondition })
+    healthcondition: Healthcondition;
 
     @IsString()
     @IsOptional()
     @ApiProperty({ required: false })
-    location: string;
+    location_new: string;
 
-    @IsString()
+    @IsEnum(Region)
     @IsOptional()
-    @ApiProperty({ required: false })
-    region: string;
+    @ApiProperty({ required: false, enum: Region })
+    region: Region;
 }
