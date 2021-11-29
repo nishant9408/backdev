@@ -82,7 +82,7 @@ export class UpdateUserInput {
     @IsString()
     @IsOptional()
     @ApiProperty({ required: false })
-    location_new: string;
+    country: string;
 
     @IsEnum(Region)
     @IsOptional()
