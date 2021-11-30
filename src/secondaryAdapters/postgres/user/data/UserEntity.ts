@@ -92,7 +92,7 @@ export class UserEntity {
     @CreateDateColumn({ name: 'deleted_at', nullable: true })
     deletedAt: Date | null = null;
 
-    @Column({ name: 'healthCondition', type: 'enum', enum: HealthCondition })
+    @Column({ name: 'healthcondition', type: 'enum', enum: HealthCondition })
     healthCondition: HealthCondition;
 
     @Column({ name: 'region', type: 'enum', enum: Region })
