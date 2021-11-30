@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsEmail, IsEnum, IsNumber, IsOptional, IsString, Max, Min, MinLength } from 'class-validator';
-import { Healthcondition } from '../../../../../core/data/Healthcondition';
+import { HealthCondition } from '../../../../../core/data/HealthCondition';
 import { Diet } from '../../../../../core/data/Diet';
 import { Food } from '../../../../../core/data/Food';
 import { GenderType } from '../../../../../core/data/GenderType';
@@ -63,18 +63,6 @@ export class    RegistrationInput extends BaseAuthInput {
     })
     diet: Diet;
 
-    @IsEnum(Healthcondition)
-    @ApiProperty({
-        enum: Healthcondition,
-    })
-    healthcondition: Healthcondition;
-
-    @IsEnum(Region)
-    @ApiProperty({
-        enum: Region,
-    })
-    region: Region;
-
     @IsArray()
     @ApiProperty({ required: true, enum: Food, isArray: true })
     foods: Food[];
@@ -90,4 +78,20 @@ export class    RegistrationInput extends BaseAuthInput {
     @IsString()
     @ApiProperty({ example: '1qww2-swsw-dsa1' })
     notificationToken: string;
+
+    @IsEnum(HealthCondition)
+    @ApiProperty({
+        enum: HealthCondition,
+    })
+    healthCondition: HealthCondition;
+
+    @IsEnum(Region)
+    @ApiProperty({
+        enum: Region,
+    })
+    region: Region;
+
+    @IsString()
+    @ApiProperty({ example: 'India' })
+    country: string;
 }

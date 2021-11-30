@@ -5,11 +5,11 @@ export class UserAddFields1604652029943 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         const changes = `
             ALTER TABLE users
-            ADD COLUMN country VARCHAR(100),
-            ADD COLUMN region VARCHAR(100),
-            ADD COLUMN healthcondition VARCHAR(100),
             ADD COLUMN timezone VARCHAR(50),
-            ADD COLUMN notification_token VARCHAR(255);`;
+            ADD COLUMN notification_token VARCHAR(255);
+            ADD COLUMN country VARCHAR(50),
+            ADD COLUMN region VARCHAR(50),
+            ADD COLUMN healthcondition VARCHAR(50)`;
 
         const deleteFields = `
             ALTER TABLE health_provider

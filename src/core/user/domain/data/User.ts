@@ -1,4 +1,4 @@
-import { Healthcondition } from '../../../data/Healthcondition';
+import { HealthCondition } from '../../../data/HealthCondition';
 import { Diet } from '../../../data/Diet';
 import { Food } from '../../../data/Food';
 import { GenderType } from '../../../data/GenderType';
@@ -19,14 +19,15 @@ interface UserBuilder {
     diet: Diet;
     foods: Food[];
     timezone: string;
-    healthcondition: Healthcondition;
-    region: Region;
     // latitude: number;
     // longitude: number;
     notificationToken: string;
     averageSleepingTime: number;
     createdAt?: Date | null | undefined;
     deletedAt?: Date | null | undefined;
+    healthCondition: HealthCondition;
+    region: Region;
+    country: string;
 }
 
 export class User {
@@ -46,12 +47,13 @@ export class User {
     weightLossIntensity: number;
     foodIntolerance: string[];
     diet: Diet;
-    healthcondition: Healthcondition;
-    region: Region;
     foods: Food[];
     averageSleepingTime: number;
     createdAt?: Date | null;
     deletedAt?: Date | null;
+    healthCondition: HealthCondition;
+    region: Region;
+    country: string;
 
     public static fromObject(builder: UserBuilder): User {
         const user = new User();
@@ -68,8 +70,6 @@ export class User {
         user.foodIntolerance = builder.foodIntolerance;
         user.foods = builder.foods;
         user.diet = builder.diet;
-        user.healthcondition = builder.healthcondition;
-        user.region = builder.region;
         user.height = builder.height;
         user.averageSleepingTime = builder.averageSleepingTime;
         user.weightLossIntensity = builder.weightLossIntensity;
@@ -77,6 +77,9 @@ export class User {
         user.targetWeight = builder.targetWeight;
         user.createdAt = builder.createdAt || null;
         user.deletedAt = builder.deletedAt || null;
+        user.healthCondition = builder.healthCondition;
+        user.region = builder.region;
+        user.country= builder.country;
         return user;
     }
 }

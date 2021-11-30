@@ -1,4 +1,4 @@
-import { Healthcondition } from '../../../../core/data/Healthcondition';
+import { HealthCondition } from '../../../../core/data/HealthCondition';
 import { Region } from '../../../../core/data/Region';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { Diet } from '../../../../core/data/Diet';
@@ -22,13 +22,14 @@ interface UserEntityObject {
     foodIntolerance: string[];
     averageSleepingTime: number;
     diet: Diet;
-    healthcondition: Healthcondition;
-    region: Region;
     foods: Food[];
     timezone: string;
     notificationToken: string;
     createdAt?: Date | null | undefined;
     deletedAt?: Date | null | undefined;
+    healthCondition: HealthCondition;
+    region: Region;
+    country: string;
 }
 
 @Entity({ name: 'users' })
@@ -82,12 +83,6 @@ export class UserEntity {
     @Column({ name: 'diet', type: 'enum', enum: Diet })
     diet: Diet;
 
-    @Column({ name: 'healthcondition', type: 'enum', enum: Healthcondition })
-    healthcondition: Healthcondition;
-
-    @Column({ name: 'region', type: 'enum', enum: Region })
-    region: Region;
-
     @Column({ name: 'foods', array: true, type: 'enum', enum: Food })
     foods: Food[];
 
@@ -96,6 +91,15 @@ export class UserEntity {
 
     @CreateDateColumn({ name: 'deleted_at', nullable: true })
     deletedAt: Date | null = null;
+
+    @Column({ name: 'healthCondition', type: 'enum', enum: HealthCondition })
+    healthCondition: HealthCondition;
+
+    @Column({ name: 'region', type: 'enum', enum: Region })
+    region: Region;
+
+    @Column({ name: 'country' })
+    country: string;
 
     public static fromObject(builder: UserEntityObject): UserEntity {
         const newUser = new UserEntity();
@@ -111,8 +115,6 @@ export class UserEntity {
         newUser.foods = builder.foods;
         newUser.averageSleepingTime = builder.averageSleepingTime;
         newUser.diet = builder.diet;
-        newUser.region = builder.region;
-        newUser.healthcondition = builder.healthcondition;
         newUser.height = builder.height;
         newUser.weightLossIntensity = builder.weightLossIntensity;
         newUser.weight = builder.weight;
@@ -123,6 +125,10 @@ export class UserEntity {
         if (builder.createdAt != null) {
             newUser.createdAt = builder.createdAt;
         }
+        newUser.healthCondition = builder.healthCondition;
+        newUser.region = builder.region;
+        newUser.country = builder.country;
+        
         return newUser;
     }
 }
